@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import natarajaIcon from '../assets/natraja.png';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -19,7 +20,10 @@ const Navbar = () => {
         <nav className="navbar">
             <div className="container navbar-container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <div className="logo">
-                    <Link to="/" onClick={() => scrollToSection('home')}>DANCE STUDIO</Link>
+                    <Link to="/" onClick={() => scrollToSection('home')} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                        <img src={natarajaIcon} alt="Nataraja" style={{ height: '40px', width: 'auto' }} />
+                        SRI MALLIGAI BHARATHALAYA
+                    </Link>
                 </div>
 
                 <div className="nav-links">

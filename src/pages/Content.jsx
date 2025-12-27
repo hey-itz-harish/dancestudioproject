@@ -24,6 +24,8 @@ const Content = ({ id }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [activeTab, setActiveTab] = useState('photos'); // 'photos' or 'videos'
 
+
+
     const currentItems = activeTab === 'photos' ? galleryImages : galleryVideos;
 
     const nextSlide = () => {
@@ -37,6 +39,21 @@ const Content = ({ id }) => {
     const handleTabChange = (tab) => {
         setActiveTab(tab);
         setCurrentIndex(0); // Reset index when switching tabs
+    };
+
+    const swipeConfidenceThreshold = 10000;
+    const swipePower = (offset, velocity) => {
+        return Math.abs(offset) * velocity;
+    };
+
+    const handleDragEnd = (e, { offset, velocity }) => {
+        const swipe = swipePower(offset.x, velocity.x);
+
+        if (swipe < -swipeConfidenceThreshold) {
+            nextSlide();
+        } else if (swipe > swipeConfidenceThreshold) {
+            prevSlide();
+        }
     };
 
     return (
@@ -53,19 +70,10 @@ const Content = ({ id }) => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
-                    style={{ fontSize: '3rem', fontWeight: 'bold', marginBottom: '20px' }}
+                    className="responsive-h1"
                 >
                     <span className="elevate-text">Our Gallery</span>
                 </motion.h1>
-                <motion.p
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.3 }}
-                    style={{ fontSize: '1.2rem', color: '#ccc', marginBottom: '40px' }}
-                >
-                    Explore our latest performances and behind-the-scenes moments.
-                </motion.p>
-
                 <div className="toggle-container">
                     <button
                         className={`toggle-button ${activeTab === 'photos' ? 'active' : ''}`}
@@ -81,11 +89,9 @@ const Content = ({ id }) => {
                     </button>
                 </div>
 
-                <div className="gallery-container">
-                    <button className="nav-button prev" onClick={prevSlide}>
-                        &#10094;
-                    </button>
-
+                <div
+                    className="gallery-container"
+                >
                     <div className="gallery-wrapper">
                         <AnimatePresence mode="wait">
                             {activeTab === 'photos' ? (
@@ -94,32 +100,53 @@ const Content = ({ id }) => {
                                     src={currentItems[currentIndex].src}
                                     alt={currentItems[currentIndex].alt}
                                     className="gallery-image"
-                                    initial={{ opacity: 0, x: 100 }}
+                                    initial={{ opacity: 0, x: 20 }}
                                     animate={{ opacity: 1, x: 0 }}
-                                    exit={{ opacity: 0, x: -100 }}
-                                    transition={{ duration: 0.5 }}
+                                    exit={{ opacity: 0, x: -20 }}
+                                    transition={{ duration: 0.3 }}
+                                    drag="x"
+                                    dragConstraints={{ left: 0, right: 0 }}
+                                    dragElastic={1}
+                                    onDragEnd={handleDragEnd}
                                 />
                             ) : (
-                                <motion.video
-                                    key={`video-${currentIndex}`}
-                                    src={currentItems[currentIndex].src}
-                                    className="gallery-video"
-                                    controls
-                                    autoPlay
-                                    muted
-                                    loop
-                                    initial={{ opacity: 0, x: 100 }}
+                                <motion.div
+                                    key={`video-container-${currentIndex}`}
+                                    className="video-swipe-container"
+                                    initial={{ opacity: 0, x: 20 }}
                                     animate={{ opacity: 1, x: 0 }}
-                                    exit={{ opacity: 0, x: -100 }}
-                                    transition={{ duration: 0.5 }}
-                                />
+                                    exit={{ opacity: 0, x: -20 }}
+                                    transition={{ duration: 0.3 }}
+                                    drag="x"
+                                    dragConstraints={{ left: 0, right: 0 }}
+                                    dragElastic={1}
+                                    onDragEnd={handleDragEnd}
+                                    style={{ width: '100%', height: '100%', touchAction: 'none' }}
+                                >
+                                    <video
+                                        src={currentItems[currentIndex].src}
+                                        className="gallery-video"
+                                        controls
+                                        autoPlay
+                                        muted
+                                        loop
+                                        style={{ pointerEvents: 'auto' }}
+                                    />
+                                </motion.div>
                             )}
                         </AnimatePresence>
                     </div>
 
-                    <button className="nav-button next" onClick={nextSlide}>
-                        &#10095;
-                    </button>
+                    <div className="dot-indicators">
+                        {currentItems.map((_, index) => (
+                            <button
+                                key={index}
+                                className={`dot ${index === currentIndex ? 'active' : ''}`}
+                                onClick={() => setCurrentIndex(index)}
+                                aria-label={`Go to ${activeTab === 'photos' ? 'photo' : 'video'} ${index + 1}`}
+                            />
+                        ))}
+                    </div>
                 </div>
             </div>
         </motion.div>

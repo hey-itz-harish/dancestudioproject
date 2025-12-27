@@ -14,7 +14,7 @@
 
   --primary: #ffffff;
   --secondary: #a0a0a0;
-  --accent: #00ff88;
+  --accent: #ff0000;
   --highlight: #00ccff;
   --background: #1a1a1a;
   --surface: rgba(255, 255, 255, 0.1);
@@ -79,7 +79,7 @@ body {
 }
 
 .nav-links a:hover {
-  color: var(--accent);
+  color: #ff0000;
 }
 
 .hamburger {
@@ -121,7 +121,7 @@ body {
 }
 
 .mobile-link:hover {
-  color: var(--accent);
+  color: #ff0000;
 }
 
 @media (max-width: 768px) {
@@ -154,7 +154,6 @@ body {
 
 .elevate-text {
   font-family: 'Trattatello', fantasy;
-  font-size: 7rem;
   color: transparent;
   -webkit-text-stroke: 2px #FFFF00;
   filter: drop-shadow(0 0 10px rgba(255, 255, 0, 0.8));
@@ -180,8 +179,8 @@ body {
   padding: 15px 40px;
   font-size: 1.2rem;
   font-weight: bold;
-  color: black;
-  background: var(--primary);
+  color: white;
+  background: #ff0000;
   border: none;
   border-radius: 50px;
   cursor: pointer;
@@ -189,8 +188,10 @@ body {
 }
 
 .cta-button:hover {
+  background: white;
+  color: #ff0000;
   transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
 }
 
 /* Glass Panel */
@@ -259,25 +260,32 @@ body {
 .toggle-container {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 10px;
   margin-bottom: 30px;
 }
 
 .toggle-button {
   padding: 10px 30px;
-  background: rgba(255, 255, 255, 0.1);
-  border: none;
+  background: rgba(255, 255, 255, 0);
+  border: 2px solid #ffb300;
   border-radius: 30px;
-  color: var(--primary);
+  color: #ffffff;
   font-size: 1.1rem;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
+.toggle-button:hover {
+  background: rgb(255, 0, 0);
+  color: #ffffff;
+  border-color: #ff0000;
+}
+
 .toggle-button.active {
-  background: var(--accent);
-  color: black;
-  box-shadow: 0 0 15px var(--accent);
+  background: #ff0000;
+  color: rgb(255, 255, 255);
+  border-color: #ff0000;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.782);
 }
 
 .gallery-container {
@@ -305,37 +313,44 @@ body {
   object-fit: cover;
 }
 
-.nav-button {
+.dot-indicators {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 50px;
-  height: 50px;
-  background: rgba(0, 0, 0, 0.5);
-  border: none;
-  border-radius: 50%;
-  color: white;
-  font-size: 24px;
-  cursor: pointer;
-  z-index: 10;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
-  align-items: center;
-  justify-content: center;
+  gap: 12px;
+  z-index: 10;
+  padding: 10px 20px;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+  border-radius: 30px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  cursor: pointer;
   transition: all 0.3s ease;
+  padding: 0;
 }
 
-.nav-button:hover {
-  background: var(--accent);
-  color: black;
+.dot:hover {
+  background: rgba(255, 255, 255, 0.8);
+  transform: scale(1.2);
 }
 
-.nav-button.prev {
-  left: 20px;
+.dot.active {
+  background: #ff0000;
+  border-color: #ff0000;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+  width: 14px;
+  height: 14px;
 }
 
-.nav-button.next {
-  right: 20px;
-}
 
 /* Slideshow */
 .slideshow-container {
@@ -370,7 +385,7 @@ body {
 /* Footer */
 .footer {
   background: rgba(0, 0, 0, 0.8);
-  padding: 40px 0;
+  padding: 20px 0;
   text-align: center;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   position: relative;
@@ -397,4 +412,97 @@ body {
 
 .social-link:hover {
   color: var(--accent);
+}
+
+/* Responsive Styles */
+.responsive-h1 {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  text-align: left;
+}
+
+.about-grid {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 3rem;
+  }
+
+  .elevate-text {
+    font-size: 4rem;
+    -webkit-text-stroke: 1px #FFFF00;
+  }
+
+  .hero-content p {
+    font-size: 1.2rem;
+  }
+
+  .responsive-h1 {
+    font-size: 2.5rem !important;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .glass-panel {
+    padding: 20px;
+  }
+
+  .navbar {
+    padding: 15px 20px;
+  }
+
+  .container {
+    padding: 0 15px;
+  }
+
+  .page {
+    padding-top: 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  .elevate-text {
+    font-size: 3rem;
+    padding: 0 10px;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .toggle-button {
+    padding: 8px 20px;
+    font-size: 1rem;
+  }
+
+  .dot-indicators {
+    bottom: 10px;
+    gap: 8px;
+    padding: 8px 15px;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+  }
+
+  .dot.active {
+    width: 12px;
+    height: 12px;
+  }
 }
