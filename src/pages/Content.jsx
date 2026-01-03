@@ -1,17 +1,13 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import dance1 from '../assets/slideshow/dance1.png';
-import dance2 from '../assets/slideshow/dance2.png';
-import dance3 from '../assets/slideshow/dance3.png';
-import dance4 from '../assets/slideshow/dance4.png';
-import natraja2 from '../assets/slideshow/natraja2.png';
+import image1 from '../assets/content-phoyos/image1.png';
+import image2 from '../assets/content-phoyos/image2.png';
+import image3 from '../assets/content-phoyos/image3.png';
 
 const galleryImages = [
-    { src: dance1, alt: 'Dance Performance 1' },
-    { src: dance2, alt: 'Dance Performance 2' },
-    { src: dance3, alt: 'Dance Performance 3' },
-    { src: dance4, alt: 'Dance Performance 4' },
-    { src: natraja2, alt: 'Natraja Statue' },
+    { src: image1, alt: 'Gallery Image 1' },
+    { src: image2, alt: 'Gallery Image 2' },
+    { src: image3, alt: 'Gallery Image 3' },
 ];
 
 const galleryVideos = [

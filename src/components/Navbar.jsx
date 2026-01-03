@@ -20,8 +20,8 @@ const Navbar = () => {
         <nav className="navbar">
             <div className="container navbar-container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <div className="logo">
-                    <Link to="/" onClick={() => scrollToSection('home')} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                        <img src={natarajaIcon} alt="Nataraja" style={{ height: '40px', width: 'auto' }} />
+                    <Link to="/" onClick={() => scrollToSection('home')}>
+                        <img src={natarajaIcon} alt="Nataraja" />
                         SRI MALLIGAI BHARATHALAYA
                     </Link>
                 </div>

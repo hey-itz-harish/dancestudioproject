@@ -20,16 +20,17 @@ const Contact = ({ id }) => {
                             initial={{ opacity: 0, x: -30 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.5, delay: 0.2 }}
-                            style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', paddingRight: '40px' }}
+                            className="contact-info-section"
                         >
-                            <div className="contact-info-item">
-                                <h4>Phone</h4>
-                                <p>(555) 123-4567</p>
+                            <div className="contact-info-item" style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '15px' }}>
+                                <h4 style={{ margin: 0, minWidth: '60px' }}>Phone:</h4>
+                                <p style={{ margin: 0 }}>+91 9345555555</p>
                             </div>
-                            <div className="contact-info-item">
-                                <h4>Email</h4>
-                                <p>info@dancestudio.com</p>
+                            <div className="contact-info-item" style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '15px' }}>
+                                <h4 style={{ margin: 0, minWidth: '60px' }}>Email:</h4>
+                                <p style={{ margin: 0 }}>malligaibharathalaya15@gmail.com</p>
                             </div>
+
                             <div className="contact-info-item">
                                 <h4>Location</h4>
                                 <div style={{ width: '100%', height: '200px', borderRadius: '10px', overflow: 'hidden', marginTop: '10px' }}>
@@ -46,6 +47,39 @@ const Contact = ({ id }) => {
                                 <p style={{ fontSize: '0.9rem', marginTop: '10px', color: '#ccc' }}>
                                     No 5 Ashok nagar hathiram Karupur Koranattu karupu, PO, Kumbakonam, Tamil Nadu 612401
                                 </p>
+                            </div>
+
+                            <div className="contact-info-item" style={{ marginTop: '20px' }}>
+                                <h4 style={{ marginBottom: '10px' }}>Connect with us</h4>
+                                <div style={{ display: 'flex', gap: '20px' }}>
+                                    <a href="https://www.instagram.com/srimalligaibhardhalaya?igsh=MWF5NnAwN3V1aGZ2Zw==" target="_blank" rel="noopener noreferrer">
+                                        <img
+                                            src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+                                            alt="Instagram"
+                                            style={{ width: '40px', height: '40px', cursor: 'pointer', transition: 'transform 0.2s' }}
+                                            onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
+                                            onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
+                                        />
+                                    </a>
+                                    <a href="https://www.facebook.com/srimalligaibhardhalaya" target="_blank" rel="noopener noreferrer">
+                                        <img
+                                            src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
+                                            alt="Facebook"
+                                            style={{ width: '40px', height: '40px', cursor: 'pointer', transition: 'transform 0.2s' }}
+                                            onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
+                                            onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
+                                        />
+                                    </a>
+                                    <a href="https://wa.me/919345555555" target="_blank" rel="noopener noreferrer">
+                                        <img
+                                            src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+                                            alt="WhatsApp"
+                                            style={{ width: '40px', height: '40px', cursor: 'pointer', transition: 'transform 0.2s' }}
+                                            onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
+                                            onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
+                                        />
+                                    </a>
+                                </div>
                             </div>
                         </motion.div>
 

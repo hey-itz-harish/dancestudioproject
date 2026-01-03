@@ -27,7 +27,8 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background-color: transparent;
-  overflow-x: hidden;
+  overflow: hidden;
+  /* Fix for double scrollbar */
 }
 
 .snap-container {
@@ -55,6 +56,8 @@ body {
   background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-sizing: border-box;
+  /* Fix for padding overflow */
 }
 
 .logo a {
@@ -63,6 +66,15 @@ body {
   color: var(--primary);
   text-decoration: none;
   letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-align: left;
+}
+
+.logo a img {
+  height: 40px;
+  width: auto;
 }
 
 .nav-links {
@@ -132,23 +144,39 @@ body {
   .hamburger {
     display: flex;
   }
+
+  .logo a {
+    font-size: 1.2rem;
+    gap: 8px;
+  }
+
+  .logo a img {
+    height: 32px;
+  }
 }
 
 /* Hero Section */
 .hero-section {
-  height: 100vh;
+  height: calc(100vh - 80px);
+  /* Subtract navbar height for true centering */
+  width: 100%;
+  box-sizing: border-box;
+  /* display: flex;*/
+  /* margin-top: 120px; REMOVED to reduce gap */
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding-left: 10%;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 80px;
+  /* Combined 60px margin + 20px padding */
   position: relative;
-  z-index: 1;
+  z-index: 0.5;
+  text-align: left;
 }
 
 .hero-content h1 {
   font-size: 5rem;
   font-weight: 800;
-  line-height: 1.1;
+  line-height: 0.9;
   margin-bottom: 20px;
 }
 
@@ -158,7 +186,12 @@ body {
   -webkit-text-stroke: 2px #FFFF00;
   filter: drop-shadow(0 0 10px rgba(255, 255, 0, 0.8));
   font-weight: normal;
-  padding: 0 20px;
+  font-size: 1.3em;
+  /* Slightly smaller */
+  letter-spacing: 8px;
+  /* Reduced spacing for ~3/4 width */
+  margin-left: 5px;
+  /* Slight offset for centering */
 }
 
 .movement-text {
@@ -169,14 +202,14 @@ body {
 }
 
 .hero-content p {
-  font-size: 1.5rem;
+  font-size: 1.115rem;
   color: var(--text-secondary);
   max-width: 500px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .cta-button {
-  padding: 15px 40px;
+  padding: 15px 90px;
   font-size: 1.2rem;
   font-weight: bold;
   color: white;
@@ -235,6 +268,8 @@ body {
   font-size: 1rem;
   outline: none;
   transition: background 0.3s ease;
+  box-sizing: border-box;
+  /* Fix for overflow */
 }
 
 .contact-input::placeholder {
@@ -428,6 +463,11 @@ body {
   text-align: left;
 }
 
+.contact-info-section {
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  padding-right: 40px;
+}
+
 .about-grid {
   margin-top: 40px;
   display: grid;
@@ -456,6 +496,14 @@ body {
   .contact-grid {
     grid-template-columns: 1fr;
     gap: 30px;
+  }
+
+  .contact-info-section {
+    border-right: none;
+    padding-right: 0;
+    margin-bottom: 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 30px;
   }
 
   .glass-panel {

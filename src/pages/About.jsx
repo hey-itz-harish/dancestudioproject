@@ -1,7 +1,29 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import image1 from '../assets/about/image1.png';
+import image2 from '../assets/about/image2.png';
+import image3 from '../assets/about/image3.png';
 
 const About = ({ id }) => {
+    const sectionStyle = {
+        background: 'rgba(26, 26, 26, 0.34)',
+        padding: '20px',
+        borderRadius: '10px',
+        backdropFilter: 'blur(5px)',
+        textAlign: 'left',
+        display: 'block',
+        overflow: 'auto',
+        marginBottom: '40px'
+    };
+
+    const imageStyle = {
+        width: '300px',
+        height: 'auto',
+        borderRadius: '10px',
+        objectFit: 'cover',
+        marginBottom: '10px'
+    };
+
     return (
         <motion.div
             id={id}
@@ -15,7 +37,6 @@ const About = ({ id }) => {
             exit={{ opacity: 0, x: 20 }}
             transition={{ duration: 0.5 }}
         >
-            {/* <DanceBackground3D /> */}
             <div className="container section" style={{ position: 'relative', zIndex: 1 }}>
                 <motion.h1
                     initial={{ opacity: 0, y: 20 }}
@@ -25,29 +46,64 @@ const About = ({ id }) => {
                 >
                     <span className="elevate-text">About Us</span>
                 </motion.h1>
-                <div style={{ marginTop: '40px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '20px' }}>
-                    {[1].map((item) => (
-                        <motion.div
-                            key={item}
-                            style={{
-                                background: 'rgba(26, 26, 26, 0.34)',
-                                padding: '20px',
-                                borderRadius: '10px',
-                                border: 'none',
-                                backdropFilter: 'blur(5px)',
-                                textAlign: 'left'
-                            }}
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ delay: 0.4 + item * 0.1 }}
-                        >
-                            <p>Sri Malligai Bharathalaya is the platform to teach children of all the ages and adults of all levels. Also, we have an ability to work with extremely shy peoples, and together with their support. we have been able to get them to participate in all programmes. Train, exercise and attend dance classes to maintain high levels of technical proficiency, physical ability and physical fitness. Adult classes are structured to be enjoyable & challanging with the goal of promoting a fit, injury free, healthy lifestyle while learning an ancient artform. The class suitable for all adults irrespective of prior Bharatanatyam training.</p>
-                            <p>In Malligai Bharathalaya every dancer learns from every other dancer. Each dancer works at his/her own skill levels and dancers will encourage each other. You are here to mould and help yourself to become a better dancer and find joy in dancing.</p>
-                            <p>Classes are conducted for all ages in Pandanallur style. Online Bharathanatyam classes, special choreography (Solo/Group) & private classes are offered. Students who have prior exposure to Bharathanatyam will be placed in respective levels after a set of evaluations.</p>
-                            <p>Classes include theory sessions in which the Hastas, Karnas, Margam, Grade exam syllabus and various other technical aspects of Bharathantayam are taught. The structure is designed in a methodical way that prepares the dancer for Salangai Pooja and Arangetram.</p>
-                            <p>Enrolling students in the following categories:<br></br>Level I - Beginner<br></br>Level II - Advanced<br></br>Level III - Professional<br></br>Classes are currently conducted in Kumbakonam. Duration of the class increases as one progress through the levels. Additional classes might be scheduled if a dancer is preparing for a Salangai Pooja or Arangetram or any performance.</p>
-                        </motion.div>
-                    ))}
+                <div style={{ marginTop: '40px' }}>
+
+                    {/* Section 1 */}
+                    <motion.div
+                        style={sectionStyle}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.3 }}
+                    >
+                        <img
+                            src={image1}
+                            alt="Harini Ganesan"
+                            style={{ ...imageStyle, float: 'left', marginRight: '20px' }}
+                        />
+                        <div>
+                            <p>I am Ms. Harini Ganesan, a young exponent Bharathanatyam dancer and founder of Sri Malligai Bharatyalaya, Kumbakonam under the discipline of Guru Sri Swaminathan Pillai, Pandanallur. I began my Bharathanatyam training at the age of 5 and spent my formative years learning under Sarogini, Kumbakonam.</p>
+                            <p>I hold a Diploma in Nattuvangam and a Bachelor Degree in Fine Arts & Dance from Annamalai University, Chithambaram. I gathered knowledge about the dance form with various eminent Gurus.</p>
+                            <p>I have performed in 30+ stage programs and also performed on the DD Podhigai Channel. I was the Super Senior of the Young Musician Association, Kumbakonam, and the President of the Fine Arts Club at the college level, where I choreographed for college students. I have organized, judged, choreographed, and performed related to the Indian Classical Art Form, Bharathanatyam.</p>
+                            <p>I have performed in the Republic Day Parade Camp, Rashtrapati Bhavan, New Delhi, and also performed in front of the Prime Minister at the PM house. I have been awarded the titles "Nattiya Kalai Sudar", "Kuda Thai Kutty Padmini", and "Yuva Sri Kalai Bharathi" for my excellence in footwork. Additionally, I graduated with a Bachelor Degree in Electronics and Communication Engineering from Arasu Engineering College, Anna University.</p>
+                        </div>
+                    </motion.div>
+
+                    {/* Section 2 */}
+                    <motion.div
+                        style={sectionStyle}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.4 }}
+                    >
+                        <img
+                            src={image2}
+                            alt="Dancing to Shiva"
+                            style={{ ...imageStyle, float: 'right', marginLeft: '20px' }}
+                        />
+                        <div>
+                            <p>"I'm thankful to dance at Kumbakonam, Maha shivaratri. Those are the moments where the dance reigns supreme. Dance is the only thing i know while dancing on this stage. Really this stage is mysterious. I can't separate myself from dance. It's a part of me and have a lot of joy and be free form myself.</p>
+                            <p>Let me fully surrendered with Lord Shiva. Let the sound of your Damaru allow me to Surrender to you, let it free me of everything. Let me dance and know none other than you. Oh Shiva let my mind rest upon you. Only you!!! I bow down to that 'Shiva'. Om Nama Shivaya"</p>
+                        </div>
+                    </motion.div>
+
+                    {/* Section 3 */}
+                    <motion.div
+                        style={sectionStyle}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.5 }}
+                    >
+                        <img
+                            src={image3}
+                            alt="Passion for Dance"
+                            style={{ ...imageStyle, float: 'left', marginRight: '20px' }}
+                        />
+                        <div>
+                            <p>"Dance is probably one of the most genuine ways to express your feelings. I can’t explain the feeling, but when that song comes on, I get lost in the music, in my moves, and I’m able to find that confident, energetic, and passionate Abinayas.</p>
+                            <p>It’s really an honor when people come up to me and tell me how they enjoy watching at me, how they want me to teach them, how I’m good at dancing. I don’t want to come off bragging, but to be honest, it’s probably the one thing I’m proud of. Confidence doesn’t come easy to me, but when I’m dancing, I feel I lost myself at dance"</p>
+                        </div>
+                    </motion.div>
+
                 </div>
             </div>
         </motion.div>
