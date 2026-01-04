@@ -22,8 +22,10 @@ const Navbar = () => {
                 <div className="logo">
                     <Link to="/" onClick={() => scrollToSection('home')}>
                         <img src={natarajaIcon} alt="Nataraja" />
-                        <span style={{ color: '#FFFF00', marginRight: '5px' }}>SRI</span>
-                        <span style={{ color: '#FF0000' }}>MALLIGAI BHARATHALAYA</span>
+                        <div className="logo-text">
+                            <span style={{ color: '#ffffff', marginRight: '5px' }}>SRI</span>
+                            <span style={{ color: '#ffffff' }}>MALLIGAI BHARATHALAYA</span>
+                        </div>
                     </Link>
                 </div>
 

@@ -147,12 +147,24 @@ body {
   }
 
   .logo a {
-    font-size: 1.2rem;
-    gap: 8px;
+    gap: 10px;
+    align-items: center;
+    /* Ensure vertical centering */
+  }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.8rem;
+    /* Slightly smaller to prevent overflow */
+    line-height: 1.1;
+    justify-content: center;
+    text-align: left;
   }
 
   .logo a img {
-    height: 32px;
+    height: 35px;
+    /* Adjust icon size */
   }
 }
 
