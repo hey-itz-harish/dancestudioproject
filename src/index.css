@@ -250,6 +250,20 @@ body {
   /* Navbar height */
 }
 
+.page.contact {
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.page.contact .container {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.footer {
+  width: 100%;
+}
+
 .container {
   width: 100%;
   max-width: 1200px;
