@@ -513,7 +513,8 @@ html,
 
 @media (max-width: 768px) {
   .hero-section {
-    padding-left: 20px;
+    padding: 0 20px;
+    /* Symmetrical padding */
     height: auto;
     min-height: calc(100vh - 80px);
   }
@@ -527,11 +528,13 @@ html,
   }
 
   .hero-content h1 {
-    font-size: 3rem;
+    font-size: 2.2rem;
+    /* Reduced from 3rem */
   }
 
   .elevate-text {
-    font-size: 4rem;
+    font-size: 2rem;
+    /* Reduced from 4rem */
     -webkit-text-stroke: 1px #FFFF00;
   }
 
