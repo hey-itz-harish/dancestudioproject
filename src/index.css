@@ -513,8 +513,10 @@ html,
 
 @media (max-width: 768px) {
   .hero-section {
-    padding: 0 20px;
-    /* Symmetrical padding */
+    padding: 0 10px;
+    /* Minimal symmetrical padding */
+    text-align: center;
+    align-items: center;
     height: auto;
     min-height: calc(100vh - 80px);
   }
@@ -522,7 +524,8 @@ html,
   .page {
     height: auto;
     min-height: auto;
-    align-items: flex-start;
+    align-items: center;
+    /* Fix horizontal centering */
     padding-bottom: 60px;
     /* Space for footer */
   }
@@ -532,14 +535,16 @@ html,
     /* Reduced from 3rem */
   }
 
-  .elevate-text {
-    font-size: 2rem;
-    /* Reduced from 4rem */
-    -webkit-text-stroke: 1px #FFFF00;
-  }
-
   .hero-content p {
     font-size: 1.2rem;
+    margin: 0 auto 20px;
+    /* Center paragraph */
+  }
+
+  .elevate-text {
+    font-size: 1.1rem;
+    /* 1/2 of 2.2rem */
+    -webkit-text-stroke: 1px #FFFF00;
   }
 
   .responsive-h1 {
