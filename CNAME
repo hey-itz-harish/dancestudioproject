@@ -1,1 +1,3 @@
-www.smb.com
+Type: CNAME
+Host: www
+Value: hey-itz-harish.github.io
