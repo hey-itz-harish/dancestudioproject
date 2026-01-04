@@ -531,8 +531,8 @@ html,
   }
 
   .hero-content h1 {
-    font-size: 2.2rem;
-    /* Reduced from 3rem */
+    font-size: 1.8rem;
+    /* Reduced from 2.2rem */
   }
 
   .hero-content p {
@@ -578,22 +578,9 @@ html,
   .container {
     padding: 0 15px;
   }
-
-  .page {
-    padding-top: 70px;
-  }
 }
 
 @media (max-width: 480px) {
-  .elevate-text {
-    font-size: 3rem;
-    padding: 0 10px;
-  }
-
-  .hero-content h1 {
-    font-size: 2.5rem;
-  }
-
   .toggle-button {
     padding: 8px 20px;
     font-size: 1rem;
