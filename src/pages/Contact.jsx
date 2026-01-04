@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import Footer from '../components/Footer';
 
 const Contact = ({ id }) => {
     return (
@@ -97,6 +98,7 @@ const Contact = ({ id }) => {
                     </div>
                 </div>
             </div>
+            <Footer />
         </div>
     );
 };

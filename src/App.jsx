@@ -23,7 +23,6 @@ function App() {
           <Content id="content" />
           <Contact id="contact" />
         </div>
-        <Footer />
       </div>
     </ThemeProvider>
   );

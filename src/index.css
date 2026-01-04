@@ -27,8 +27,9 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background-color: transparent;
-  overflow: hidden;
-  /* Fix for double scrollbar */
+  overflow-x: hidden;
+  /* Prevent horizontal scroll */
+  width: 100%;
 }
 
 .snap-container {
@@ -476,6 +477,20 @@ body {
 }
 
 @media (max-width: 768px) {
+  .hero-section {
+    padding-left: 20px;
+    height: auto;
+    min-height: calc(100vh - 80px);
+  }
+
+  .page {
+    height: auto;
+    min-height: auto;
+    align-items: flex-start;
+    padding-bottom: 60px;
+    /* Space for footer */
+  }
+
   .hero-content h1 {
     font-size: 3rem;
   }
