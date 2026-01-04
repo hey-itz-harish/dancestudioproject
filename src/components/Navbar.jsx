@@ -22,7 +22,8 @@ const Navbar = () => {
                 <div className="logo">
                     <Link to="/" onClick={() => scrollToSection('home')}>
                         <img src={natarajaIcon} alt="Nataraja" />
-                        SRI MALLIGAI BHARATHALAYA
+                        <span style={{ color: '#FFFF00', marginRight: '5px' }}>SRI</span>
+                        <span style={{ color: '#FF0000' }}>MALLIGAI BHARATHALAYA</span>
                     </Link>
                 </div>
 
